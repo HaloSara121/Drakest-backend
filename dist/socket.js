@@ -8,6 +8,11 @@ exports.default = (httpServer) => {
             origin: "*"
         }
     });
-    (0, socket_controllers_1.useSocketServer)(io, { controllers: [__dirname + '/api/controllers/*.ts'] });
+    if (process.env.NODE_ENV === "production") {
+        (0, socket_controllers_1.useSocketServer)(io, { controllers: [__dirname + '/api/controllers/*.js'] });
+    }
+    else {
+        (0, socket_controllers_1.useSocketServer)(io, { controllers: [__dirname + '/api/controllers/*.ts'] });
+    }
     return io;
 };

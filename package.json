@@ -1,10 +1,10 @@
 {
-  "name": "Drakest-Back-End",
+  "name": "drakest-back-end",
   "version": "1.0",
   "private": true,
   "main": "./dist/server.js",
   "scripts": {
-    "dev": "nodemon",
+    "dev": "nodemon ./src/server.ts",
     "build": "tsc",
     "start": "node ."
   },

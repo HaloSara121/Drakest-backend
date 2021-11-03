@@ -1,5 +1,5 @@
 import { useSocketServer } from "socket-controllers";
-import { Server, Socket } from "socket.io";
+import { Server } from "socket.io";
 
 export default (httpServer: any) => {
   const io = new Server(httpServer, {
@@ -8,7 +8,11 @@ export default (httpServer: any) => {
     }
   })
 
-  useSocketServer(io, { controllers: [__dirname + '/api/controllers/*.ts'] })  
+  if(process.env.NODE_ENV === "production") {
+    useSocketServer(io, { controllers: [__dirname + '/api/controllers/*.js'] })  
+  } else {
+    useSocketServer(io, { controllers: [__dirname + '/api/controllers/*.ts'] })  
+  }
 
   return io
 }

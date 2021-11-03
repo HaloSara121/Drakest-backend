@@ -46,7 +46,7 @@ var server = http.createServer(app_1.default);
 server.listen(port);
 server.on("error", onError);
 server.on("listening", onListening);
-const io = (0, socket_1.default)(server);
+(0, socket_1.default)(server);
 /**
  * Normalize a port into a number, string, or false.
  */

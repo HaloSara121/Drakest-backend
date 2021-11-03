@@ -30,7 +30,7 @@ server.listen(port);
 server.on("error", onError);
 server.on("listening", onListening);
  
-const io = socketServer(server);
+socketServer(server)
 
 /**
  * Normalize a port into a number, string, or false.
