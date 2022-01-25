@@ -4,6 +4,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 import "reflect-metadata"
+import router from "./routes";
 
 var app = express();
 
@@ -11,6 +12,7 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(router);
 
 // catch 404 and forward to error handler
 app.use(function (req: any, res: any, next: any) {
