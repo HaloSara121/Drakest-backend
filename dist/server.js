@@ -43,7 +43,7 @@ var server = http.createServer(app_1.default);
 /**
  * Listen on provided port, on all network interfaces.
  */
-server.listen(port);
+server.listen(port, () => console.log("started"));
 server.on("error", onError);
 server.on("listening", onListening);
 (0, socket_1.default)(server);
